@@ -1,0 +1,9 @@
+﻿  runner.cpp
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\runner.cpp(91,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Generating code
+  4 of 893 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  gamesample_redesign01.vcxproj -> C:\Users\ttzdg\Documents\DirectX\Shooting Game\x64\Release\gamesample_redesign01.exe
+  0 File(s) copied

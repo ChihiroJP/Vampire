@@ -1,0 +1,5 @@
+﻿  main.cpp
+C:\Users\ttzdg\Documents\DirectX\gamesample_redesign01\main.cpp(81,8): warning C4189: 'x': local variable is initialized but not referenced
+  gamesample_redesign01.vcxproj -> C:\Users\ttzdg\Documents\DirectX\gamesample_redesign01\x64\Debug\gamesample_redesign01.exe
+  File not found -  *.cso
+  0 File(s) copied

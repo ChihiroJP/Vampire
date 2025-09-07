@@ -1,0 +1,31 @@
+﻿  compilation object save succeeded; see C:\Users\ttzdg\Documents\DirectX\gamesample_redesign01\x64\Release\shader_pixel_2d.cso
+  compilation object save succeeded; see C:\Users\ttzdg\Documents\DirectX\gamesample_redesign01\x64\Release\shader_vertex_2d.cso
+  debug_ostream.cpp
+  debug_text.cpp
+  direct3d.cpp
+  GameWindow.cpp
+  main.cpp
+C:\Users\ttzdg\Documents\DirectX\gamesample_redesign01\main.cpp(81,8): warning C4189: 'x': local variable is initialized but not referenced
+  polygon.cpp
+  shader.cpp
+  sprite.cpp
+C:\Users\ttzdg\Documents\DirectX\gamesample_redesign01\sprite.cpp(235,11): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\ttzdg\Documents\DirectX\gamesample_redesign01\sprite.cpp(236,11): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\ttzdg\Documents\DirectX\gamesample_redesign01\sprite.cpp(297,10): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\ttzdg\Documents\DirectX\gamesample_redesign01\sprite.cpp(298,10): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\ttzdg\Documents\DirectX\gamesample_redesign01\sprite.cpp(301,7): warning C4189: 'v0': local variable is initialized but not referenced
+C:\Users\ttzdg\Documents\DirectX\gamesample_redesign01\sprite.cpp(302,7): warning C4189: 'u1': local variable is initialized but not referenced
+C:\Users\ttzdg\Documents\DirectX\gamesample_redesign01\sprite.cpp(300,7): warning C4189: 'u0': local variable is initialized but not referenced
+C:\Users\ttzdg\Documents\DirectX\gamesample_redesign01\sprite.cpp(303,7): warning C4189: 'v1': local variable is initialized but not referenced
+  sprite_anim.cpp
+  system_timer.cpp
+  texture.cpp
+  WICTextureLoader11.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+C:\Users\ttzdg\Documents\DirectX\gamesample_redesign01\texture.cpp(90): warning C4715: 'Texture_Load': not all control paths return a value
+  All 957 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  gamesample_redesign01.vcxproj -> C:\Users\ttzdg\Documents\DirectX\gamesample_redesign01\x64\Release\gamesample_redesign01.exe
+  File not found -  *.cso
+  0 File(s) copied

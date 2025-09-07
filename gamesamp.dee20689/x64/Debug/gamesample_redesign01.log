@@ -1,0 +1,37 @@
+﻿  Enemy.cpp
+  bullet.cpp
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\Enemy.cpp(81,27): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\Enemy.cpp(88,53): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\Enemy.cpp(89,29): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\bullet.cpp(55,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\bullet.cpp(79,10): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\bullet.cpp(79,4): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  collision.cpp
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\collision.cpp(24,22): warning C4211: nonstandard extension used: redefined extern to static
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\collision.cpp(25,29): warning C4211: nonstandard extension used: redefined extern to static
+  direct3d.cpp
+  fade.cpp
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\fade.cpp(60,98): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\fade.cpp(60,67): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  game.cpp
+  main.cpp
+  player.cpp
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\player.cpp(65,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\player.cpp(66,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\player.cpp(67,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  polygon.cpp
+  runner.cpp
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\runner.cpp(92,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  shader.cpp
+  sprite.cpp
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\sprite.cpp(241,11): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\sprite.cpp(242,11): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\sprite.cpp(308,11): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\sprite.cpp(309,11): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\sprite.cpp(372,11): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\sprite.cpp(373,11): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+  texture.cpp
+  Generating Code...
+C:\Users\ttzdg\Documents\DirectX\Shooting Game\texture.cpp(90,1): warning C4715: 'Texture_Load': not all control paths return a value
+  gamesample_redesign01.vcxproj -> C:\Users\ttzdg\Documents\DirectX\Shooting Game\x64\Debug\gamesample_redesign01.exe
+  0 File(s) copied
