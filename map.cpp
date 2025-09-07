@@ -1,7 +1,7 @@
 /*==============================================================================
 
 	Map  [map.cpp]
-														 Author : Zishan
+														 Author : CheeHow
 														 Date   : 2025/07/16
 --------------------------------------------------------------------------------
 
@@ -45,7 +45,7 @@ static void MapchipDraw(int mapChipId, int mx, int my, const XMFLOAT2& local_off
 
 void Map_Initialize()
 {
-	g_MapTexId = Texture_Load(L"kokosozai.png");
+	g_MapTexId = Texture_Load(L"../../Mossy Cavern/Mossy Assets/");
 }
 
 void Map_Finalize()

@@ -1,6 +1,6 @@
 /*==============================================================================
 
-   Direct3Dの初期化関連 [direct3d.cpp]
+   Direct3D?????????A [direct3d.cpp]
 														 Author : Youhei Sato
 														 Date   : 2025/05/12
 --------------------------------------------------------------------------------
@@ -19,7 +19,7 @@
 	#pragma comment(lib, "DirectXTex_Release.lib")
 #endif
 
-/* 各種インターフェース */
+/* ?e??C???^?[?t?F?[?X */
 static ID3D11Device* g_pDevice = nullptr;
 static ID3D11DeviceContext* g_pDeviceContext = nullptr;
 static IDXGISwapChain* g_pSwapChain = nullptr;
@@ -27,25 +27,25 @@ static ID3D11BlendState* g_pBlendStateMultiply = nullptr;
 static ID3D11BlendState* g_pBlendStateAdd = nullptr;
 static ID3D11DepthStencilState* g_pDepthStencilStateDepthDisable = nullptr;
 
-/* バックバッファ関連 */
+/* ?o?b?N?o?b?t?@??A */
 static ID3D11RenderTargetView* g_pRenderTargetView = nullptr;
 static ID3D11Texture2D* g_pDepthStencilBuffer = nullptr;
 static ID3D11DepthStencilView* g_pDepthStencilView = nullptr;
 static D3D11_TEXTURE2D_DESC g_BackBufferDesc{};
 
 static D3D11_VIEWPORT g_Viewport{};
-static bool configureBackBuffer(); // バックバッファの設定・生成
-static void releaseBackBuffer(); // バックバッファの解放
+static bool configureBackBuffer(); // ?o?b?N?o?b?t?@????E????
+static void releaseBackBuffer(); // ?o?b?N?o?b?t?@????
 
 bool Direct3D_Initialize(HWND hWnd)
 {
-    /* デバイス、スワップチェーン、コンテキスト生成 */
+    /* ?f?o?C?X?A?X???b?v?`?F?[???A?R???e?L?X?g???? */
     DXGI_SWAP_CHAIN_DESC swap_chain_desc{};
     swap_chain_desc.Windowed = TRUE;
     swap_chain_desc.BufferCount = 2;
     // swap_chain_desc.BufferDesc.Width = 0;
     // swap_chain_desc.BufferDesc.Height = 0;
-	// ⇒ ウィンドウサイズに合わせて自動的に設定される
+	// ?? ?E?B???h?E?T?C?Y???????????I???????
     swap_chain_desc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
     swap_chain_desc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
     swap_chain_desc.SampleDesc.Count = 1;
@@ -58,11 +58,11 @@ bool Direct3D_Initialize(HWND hWnd)
 	IDXGIFactory1* pFactory;
 	CreateDXGIFactory1(IID_PPV_ARGS(&pFactory));
 	IDXGIAdapter1* pAdapter;
-	pFactory->EnumAdapters1(1, &pAdapter); // セカンダリアダプタを取得
+	pFactory->EnumAdapters1(1, &pAdapter); // ?Z?J???_???A?_?v?^???擾
 	pFactory->Release();
 	DXGI_ADAPTER_DESC1 desc;
-	pAdapter->GetDesc1(&desc); // アダプタの情報を取得して確認したい場合
-	pAdapter->Release(); // D3D11CreateDeviceAndSwapChain()の第１引数に渡して利用し終わったら解放する
+	pAdapter->GetDesc1(&desc); // ?A?_?v?^??????擾????m?F????????
+	pAdapter->Release(); // D3D11CreateDeviceAndSwapChain()???P??????n??????p???I?????????????
 	*/
 
 	UINT device_flags = 0;
@@ -93,27 +93,27 @@ bool Direct3D_Initialize(HWND hWnd)
         &g_pDeviceContext);
 
     if (FAILED(hr)) {
-		MessageBox(hWnd, "Direct3Dの初期化に失敗しました", "エラー", MB_OK);
+		MessageBox(hWnd, "Direct3D???????????s???????", "?G???[", MB_OK);
         return false;
     }
 
 	if (!configureBackBuffer()) {
-		MessageBox(hWnd, "バックバッファの設定に失敗しました", "エラー", MB_OK);
+		MessageBox(hWnd, "?o?b?N?o?b?t?@???????s???????", "?G???[", MB_OK);
 		return false;
 	}
 
 	//Alpha blend
-	// RBBA A 好きに使っていい値。
+	// RBBA A ?D????g????????l?B
 	// Alpha Tex, Alpha blend
 	
-	// ブレンドステート設定
+	// ?u?????h?X?e?[?g???
 	D3D11_BLEND_DESC bd{};
 	bd.AlphaToCoverageEnable = FALSE;
 	bd.IndependentBlendEnable = FALSE;
 	bd.RenderTarget[0].BlendEnable = TRUE;
 
 	/*******************Transparent Blend Setting******************/
-	//source (今から描く絵） dest (すでに描かれた絵）
+	//source (??????`???G?j dest (?????`?????G?j
 
 	//RGB
 	bd.RenderTarget[0].SrcBlend = D3D11_BLEND_SRC_ALPHA;
@@ -147,11 +147,11 @@ bool Direct3D_Initialize(HWND hWnd)
 
 	Direct3D_SetAlphaBlendTransparent();
 
-	// 深度ステンシルステート設定
+	// ?[?x?X?e???V???X?e?[?g???
 	D3D11_DEPTH_STENCIL_DESC dsd{};
 	dsd.DepthFunc = D3D11_COMPARISON_LESS;
 	dsd.StencilEnable = FALSE;
-	dsd.DepthEnable = FALSE; // 無効にする
+	dsd.DepthEnable = FALSE; // ?????????
 	dsd.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ZERO;
 
 	g_pDevice->CreateDepthStencilState(&dsd, &g_pDepthStencilStateDepthDisable);
@@ -183,17 +183,17 @@ void Direct3D_Clear()
 	float clear_color[4] = { 0.1f, 0.8f, 0.7f, 1.0f };
 	g_pDeviceContext->ClearRenderTargetView(g_pRenderTargetView, clear_color);
 	g_pDeviceContext->ClearDepthStencilView(g_pDepthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
-	// レンダーターゲットビューとデプスステンシルビューの設定 
+	// ?????_?[?^?[?Q?b?g?r???[??f?v?X?X?e???V???r???[???? 
 	g_pDeviceContext->OMSetRenderTargets(1, &g_pRenderTargetView,
 	g_pDepthStencilView);
 }
 
 void Direct3D_Present()
-{	// レンダーターゲットビューとデプスステンシルビューの設定 
+{	// ?????_?[?^?[?Q?b?g?r???[??f?v?X?X?e???V???r???[???? 
 	g_pDeviceContext->OMSetRenderTargets(1, &g_pRenderTargetView,
 	g_pDepthStencilView);
-	// スワップチェーンの表示
-	g_pSwapChain->Present(0, 0); // ベンチマークをとるときは　０　にする
+	// ?X???b?v?`?F?[????\??
+	g_pSwapChain->Present(0, 0); // ?x???`?}?[?N?????????@?O?@?????
 }
 
 unsigned int Direct3D_GetBackBufferWidth()
@@ -234,29 +234,29 @@ bool configureBackBuffer()
 
     ID3D11Texture2D* back_buffer_pointer = nullptr;
 
-	// バックバッファの取得
+	// ?o?b?N?o?b?t?@??擾
 	hr = g_pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**)&back_buffer_pointer);
 
     if (FAILED(hr)) {
-		hal::dout << "バックバッファの取得に失敗しました" << std::endl;
+		hal::dout << "?o?b?N?o?b?t?@??擾????s???????" << std::endl;
         return false;
     }
 
-	// バックバッファのレンダーターゲットビューの生成
+	// ?o?b?N?o?b?t?@??????_?[?^?[?Q?b?g?r???[?????
 	hr = g_pDevice->CreateRenderTargetView(back_buffer_pointer, nullptr, &g_pRenderTargetView);
 
     if (FAILED(hr)) {
         back_buffer_pointer->Release();
-        hal::dout << "バックバッファのレンダーターゲットビューの生成に失敗しました" << std::endl;
+        hal::dout << "?o?b?N?o?b?t?@??????_?[?^?[?Q?b?g?r???[?????????s???????" << std::endl;
         return false;
     }
 
-	// バックバッファの状態（情報）を取得
+	// ?o?b?N?o?b?t?@????i???j???擾
     back_buffer_pointer->GetDesc(&g_BackBufferDesc);
 
-	back_buffer_pointer->Release(); // バックバッファのポインタは不要なので解放
+	back_buffer_pointer->Release(); // ?o?b?N?o?b?t?@??|?C???^??s?v??????
 
-	// デプスステンシルバッファの生成
+	// ?f?v?X?X?e???V???o?b?t?@?????
 	D3D11_TEXTURE2D_DESC depth_stencil_desc{};
 	depth_stencil_desc.Width = g_BackBufferDesc.Width;
 	depth_stencil_desc.Height = g_BackBufferDesc.Height;
@@ -272,11 +272,11 @@ bool configureBackBuffer()
 	hr = g_pDevice->CreateTexture2D(&depth_stencil_desc, nullptr, &g_pDepthStencilBuffer);
 
 	if (FAILED(hr)) {
-		hal::dout << "デプスステンシルバッファの生成に失敗しました" << std::endl;
+		hal::dout << "?f?v?X?X?e???V???o?b?t?@?????????s???????" << std::endl;
 		return false;
 	}
 
-	// デプスステンシルビューの生成
+	// ?f?v?X?X?e???V???r???[?????
 	D3D11_DEPTH_STENCIL_VIEW_DESC depth_stencil_view_desc{};
 	depth_stencil_view_desc.Format = depth_stencil_desc.Format;
 	depth_stencil_view_desc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
@@ -285,7 +285,7 @@ bool configureBackBuffer()
 	hr = g_pDevice->CreateDepthStencilView(g_pDepthStencilBuffer, &depth_stencil_view_desc, &g_pDepthStencilView);
 
 	if (FAILED(hr)) {
-		hal::dout << "デプスステンシルビューの生成に失敗しました" << std::endl;
+		hal::dout << "?f?v?X?X?e???V???r???[?????????s???????" << std::endl;
 		return false;
 	}
 
@@ -296,7 +296,7 @@ bool configureBackBuffer()
 	g_Viewport.Height = static_cast<FLOAT>(g_BackBufferDesc.Height);
 	g_Viewport.MinDepth = 0.0f;
 	g_Viewport.MaxDepth = 1.0f;
-	g_pDeviceContext->RSSetViewports(1, &g_Viewport); // ビューポートの設定 
+	g_pDeviceContext->RSSetViewports(1, &g_Viewport); // ?r???[?|?[?g???? 
 
     return true;
 }

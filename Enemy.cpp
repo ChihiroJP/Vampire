@@ -1,7 +1,7 @@
 /*==============================================================================
 
 	Enemy  [enemy.cpp]
-														 Author : Zishan
+														 Author : CheeHow
 														 Date   : 2025/07/02
 --------------------------------------------------------------------------------
 
@@ -55,8 +55,8 @@ void Enemy_Initialize()
 	for (Enemy& e : g_Enemy) {
 		e.isEnable = false;
 	}
-	int texId = Texture_Load(L"Enemy1.png");
-	int texId1 = Texture_Load(L"Enemy.png");
+	int texId = Texture_Load(L"../../Enemy1.png");
+	int texId1 = Texture_Load(L"../../Enemy.png");
 	g_EnemyType[0].TextureId = texId;
 	g_EnemyType[1].TextureId = texId1;
 }

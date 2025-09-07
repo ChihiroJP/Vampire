@@ -31,7 +31,7 @@ void Player_Initialize(const XMFLOAT2& position)
 	g_PlayerPosition = position;
 	g_PlayerVelocity = { 0.0f, 0.0f };
 	g_PlayerEnable = true;
-	g_PlayerTextureId = Texture_Load(L"Player_Spaceship.png");
+	g_PlayerTextureId = Texture_Load(L"../../Player_Spaceship.png");
 }
 
 void Player_Finalize()
